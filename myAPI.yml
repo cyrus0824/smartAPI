@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   version: '1.0'
-  title: MyChem.info API h
+  title: MyChem.info API i
   description: Documentation of the MyChem.info chem query web services.  Learn
     more about [MyChem.info](http://MyChem.info/)
   termsOfService: http://MyChem.info/terms
