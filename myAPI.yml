@@ -3,7 +3,7 @@ info:
   version: '1.0'
   title: MyChem.info API
   description: Documentation of the MyChem.info chem query web services.  Learn
-    more about [MyChem.info](http://MyChem.info/)
+    more about [MyChem.info](http://MyChem.info/) yy
   termsOfService: http://MyChem.info/terms
   contact:
     name: Chunlei Wu
