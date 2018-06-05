@@ -5,6 +5,7 @@ info:
     about [MyGene.info](http://mygene.info/)
   title: MyGene.info API
   version: 2.0.0
+  name: Chunlei Wu
 paths:
   /gene:
     post:
