@@ -1,0 +1,495 @@
+openapi: 3.0.1
+info:
+  title: Generated API
+  version: "1.0"
+paths:
+  /api/allele/{id}:
+    get:
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+  /api/data/releases:
+    get:
+      parameters:
+      - name: system
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResponce'
+  /api/data/snapshot:
+    get:
+      parameters:
+      - name: system
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: releaseVersion
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResponce'
+  /api/data/submit:
+    post:
+      parameters:
+      - name: api_access_token
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResponce'
+  /api/data/takesnapshot:
+    get:
+      parameters:
+      - name: api_access_token
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: system
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: releaseVersion
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResponce'
+  /api/data/validate:
+    post:
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIResponce'
+  /api/disease/{id}:
+    get:
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+  /api/disease/{id}/associations:
+    get:
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - name: page
+        in: query
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - name: sortBy
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: geneName
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: species
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: geneticEntity
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: geneticEntityType
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: disease
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: source
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: reference
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: evidenceCode
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: associationType
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: asc
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResult'
+  /api/disease/{id}/associations/download:
+    get:
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            text/plain: {}
+  /api/disease/{id}/associations/downloads:
+    get:
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            text/plain:
+              schema:
+                type: string
+  /api/entity/{id}:
+    get:
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+  /api/gene/{id}:
+    get:
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+  /api/gene/{id}/alleles:
+    get:
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResult'
+  /api/go/{id}:
+    get:
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+  /api/repos/alliance-genome/{repo}/releases:
+    get:
+      parameters:
+      - name: repo
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      format: int64
+                      type: integer
+                    tag_name:
+                      type: string
+  /api/repos/alliance-genome/{repo}/releases/latest:
+    get:
+      parameters:
+      - name: repo
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GithubRelease'
+  /api/repos/alliance-genome/{repo}/releases/tags/{release}:
+    get:
+      parameters:
+      - name: repo
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: release
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GithubRelease'
+  /api/search:
+    get:
+      parameters:
+      - name: q
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: category
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - name: offset
+        in: query
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - name: sort_by
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResult'
+  /api/search_autocomplete:
+    get:
+      parameters:
+      - name: q
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: category
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AutoCompleteResult'
+  /api/sitemap.xml:
+    get:
+      responses:
+        200:
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/SiteMapIndex'
+  /api/sitemap/{category}-sitemap-{page}.xml:
+    get:
+      parameters:
+      - name: category
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: path
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        200:
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/XMLURLSet'
+components:
+  schemas:
+    SearchResult:
+      properties:
+        aggregations:
+          type: array
+          items:
+            type: object
+            properties:
+              key:
+                type: string
+              values:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    key:
+                      type: string
+                    total:
+                      format: int64
+                      type: integer
+        errorMessages:
+          type: array
+          items:
+            type: string
+        results:
+          type: array
+          items: {}
+        total:
+          format: int64
+          type: integer
+    APIResponce:
+      properties:
+        message:
+          type: string
+        status:
+          type: string
+    XMLURLSet:
+      properties:
+        url:
+          type: array
+          items:
+            type: object
+            properties:
+              changefreq:
+                type: string
+              lastmod:
+                format: date
+                type: string
+              loc:
+                type: string
+              priority:
+                type: string
+    SiteMapIndex:
+      properties:
+        sitemap:
+          type: array
+          items:
+            type: object
+            properties:
+              lastmod:
+                format: date
+                type: string
+              loc:
+                type: string
+    AutoCompleteResult:
+      properties:
+        results:
+          type: array
+          items: {}
+    GithubRelease:
+      properties:
+        id:
+          format: int64
+          type: integer
+        tag_name:
+          type: string
